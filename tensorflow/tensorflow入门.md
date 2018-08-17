@@ -32,7 +32,7 @@ for step in range(401):
         print(step,sess.run(Weights),sess.run(biases))
 ```
 ---
-## Session(会话)
+## Session(会话控制)
 
 tensorflow的session会话框有两种模式(建议用with...as,可以用完即关)
 流程：
@@ -55,4 +55,29 @@ with tf.Session() as sess:
     print(result2)
 ```
 ---
-## Variable()
+## Variable(变量)
+
+### 要点：
+
+1. tensorflow类型的变量用tf.variable( )定义,定义至少需要值和name
+2. 用tf.initialize_all_variables( )初始化,并且在会话开始时需要sess.run()一下
+3. 给变量赋值使用tf.assign(a,b) 把b付给a
+
+```python
+import tensorflow as tf
+
+state = tf.Variable(0,name = 'counter') #定义counter = 0
+#print(state.name)
+one = tf.constant(1)    #定义常量1
+
+new_value = tf.add(state, one)
+update = tf.assign(state, new_value) #把new_value赋给state
+
+init = tf.initialize_all_variables()    #非常重要，初始化变量
+
+with tf.Session() as sess:
+    sess.run(init)
+    for _ in range(3):
+        sess.run(update)
+        print(sess.run(state))
+```
