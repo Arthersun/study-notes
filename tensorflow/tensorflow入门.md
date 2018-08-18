@@ -33,6 +33,7 @@ for step in range(401):
 ```
 ---
 ## Session(会话控制)
+[源码](session_exmple.py)
 
 tensorflow的session会话框有两种模式(建议用with...as,可以用完即关)
 流程：
@@ -57,6 +58,7 @@ with tf.Session() as sess:
 ---
 ## Variable(变量)
 
+[源码](session_exmple.py)
 ### 要点：
 
 1. tensorflow类型的变量用tf.variable( )定义,定义至少需要值和name
@@ -80,4 +82,23 @@ with tf.Session() as sess:
     for _ in range(3):
         sess.run(update)
         print(sess.run(state))
+```
+---
+## placeholder(输入)
+
+* placeholder作用是在sess.run()的时候进行输入
+
+* 输入格式是一个python字典格式
+```python
+import tensorflow as tf
+
+input1 = tf.placeholder(tf.float32)
+input2 = tf.placeholder(tf.float32)
+
+output = tf.multiply(input1, input2)
+
+with tf.Session() as sess:
+    print(sess.run(output,feed_dict={input1:[7.],input2:[2.]}))
+    #placeholder作用是在sess.run()的时候进行输入
+    #输入格式是一个python字典格式
 ```
