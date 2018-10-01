@@ -15,4 +15,12 @@
   * [flask调试](./flask/flask调试.md)
   * [flask-URL传参](./flask/URL传参.md)
 
+* tensorflow的基础学习
+  * [tensorflow的基本函数和入门](tensorflow/tensorflow入门.md)
+  * [添加隐藏层的方法和优化器](tensorflow/添加层.md)
+  * [把线性函数掰弯的利器——激励函数](tensorflow/激励函数.md)
+  * [可视化工具——tensorboard](tensorflow/tensorboard可视化.md)
+  * [过拟合和解决方法dropout](tensorflow/overfitting-dropout.md)
+
     
+

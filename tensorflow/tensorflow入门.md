@@ -17,8 +17,11 @@ biases = tf.Variable(tf.zeros([1])) #biases初始化为0
 y = Weights*x_data +biases
 
 loss = tf.reduce_mean(tf.square(y-y_data))
+#tf.reduce_mean的意思是根据后面的axis(坐标轴)求平均值，0代表纵轴，1代表横轴，如果不设axis，则是求所有的平均值
 optimizer = tf.train.GradientDescentOptimizer(0.5)
+#优化器是以0.5的学习率梯度下降
 train = optimizer.minimize(loss)
+#将优化器用于误差值
 
 init = tf.initialize_all_variables() #初始化
 ###创建tensorflow结构结束###
