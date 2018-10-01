@@ -105,3 +105,33 @@ with tf.Session() as sess:
     #placeholder作用是在sess.run()的时候进行输入
     #输入格式是一个python字典格式
 ```
+# tensor
+
+张量(tensor)可以表示0阶到n阶数组
+
+![](picture/tensorflow1.png)
+
+把tensor打印出来
+
+显示为：
+
+Tensor("add:0",shape=(2,),dtype=float32)
+
+* add:0是tensor0的名字
+* shape=(2,)表示一维数组长度为2，例如，shape=(2,1)表示二维数组，长2宽1
+* dtype是数据类型，tensorflow一般的数据类型为tf.float32,tf.int32...
+
+
+
+在这个例子中，计算图只描述了计算的意义，而没有显示计算结果，这是计算图的普遍规律。
+
+计算图（graph）:搭建神经网络的计算过程，只搭建不运算
+
+会话(Session):执行计算图中的节点运算。
+
+
+
+神经网络的参数是指神经元线上的权重w。
+
+
+
